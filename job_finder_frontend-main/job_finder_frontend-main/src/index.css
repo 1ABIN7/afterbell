@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 48 100% 98%;
+    --foreground: 220 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+    --primary: 45 90% 52%;
+    --primary-foreground: 220 15% 15%;
+    --secondary: 45 30% 95%;
+    --secondary-foreground: 220 15% 15%;
+    --muted: 45 20% 95%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 45 90% 52%;
+    --accent-foreground: 220 15% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 45 20% 90%;
+    --input: 45 20% 90%;
+    --ring: 45 90% 52%;
+    --radius: 0.75rem;
+    
+    /* Custom AfterBell Colors */
+    --afterbell-yellow: #F5C518;
+    --afterbell-yellow-light: #FFF8E1;
+    --afterbell-dark: #1A1A1A;
+    --afterbell-dark-sidebar: #2D2D2D;
+    --afterbell-cream: #FFFBF0;
+    --afterbell-cream-dark: #FFF5E6;
+    --afterbell-blue: #3B82F6;
+    --afterbell-green: #10B981;
+    --afterbell-red: #EF4444;
+    --afterbell-orange: #F97316;
+    
+    --sidebar-background: 220 15% 12%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 45 90% 52%;
+    --sidebar-primary-foreground: 220 15% 15%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 45 90% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  .card-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.02);
+  }
+  
+  .dark .card-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-shadow-hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.04);
+  }
+  
+  .dark .card-shadow-hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  .sidebar-dark {
+    background-color: var(--afterbell-dark);
+  }
+  
+  .btn-primary {
+    @apply bg-[#F5C518] text-[#1A1A1A] font-semibold px-6 py-3 rounded-xl transition-all duration-200;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-[#E5B508] transform -translate-y-0.5;
+  }
+  
+  .btn-dark {
+    @apply bg-[#1A1A1A] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200;
+  }
+  
+  .btn-dark:hover {
+    @apply bg-[#333333] transform -translate-y-0.5;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-[#1A1A1A] text-[#1A1A1A] dark:border-white dark:text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 bg-transparent;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-[#1A1A1A] text-white dark:bg-white dark:text-[#1A1A1A];
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F5C518] focus:border-transparent transition-all duration-200;
+  }
+  
+  .badge-urgent {
+    @apply bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-pending {
+    @apply bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-accepted {
+    @apply bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-rejected {
+    @apply bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+  
+  .status-dot-pending {
+    @apply bg-yellow-500;
+  }
+  
+  .status-dot-active {
+    @apply bg-green-500;
+  }
+  
+  .status-dot-urgent {
+    @apply bg-red-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Remove number input spinners globally */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
