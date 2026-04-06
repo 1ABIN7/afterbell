@@ -1,0 +1,7 @@
+Flask
+flask-cors
+supabase
+python-dotenv
+requests
+pillow
+gunicorn
